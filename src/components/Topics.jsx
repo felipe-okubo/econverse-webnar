@@ -3,6 +3,8 @@ import "../../css/econverse-topics.css";
 import iconDuration from "../assets/images/icon-duration.png";
 
 const Topics = () => {
+  const isMobile = window.innerWidth < 768;
+
   const topics = [
     {
       number: "#1",
@@ -34,9 +36,16 @@ const Topics = () => {
       <div className="topics">
         {topics.map((topics) => (
           <div className="topic">
-            <span className="number">{topics.number}</span>
+            {!isMobile && <p className="number">{topics.number}</p>}
+
             <div className="description-container">
-              <h3 className="title">{topics.title}</h3>
+              {isMobile && (
+                <div>
+                  <p className="number">{topics.number}</p>
+                  <h3 className="title">{topics.title}</h3>
+                </div>
+              )}
+
               <p className="description" dangerouslySetInnerHTML={{ __html: topics.description }} ></p>
             </div>
             <div className="duration-container">

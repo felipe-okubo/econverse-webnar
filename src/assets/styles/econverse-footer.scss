@@ -7,6 +7,10 @@
   background: white;
   box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.304);
 
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+
   .top-content {
     width: 100%;
     padding: 10px 0;
@@ -16,20 +20,35 @@
 
     @media (max-width: 768px) {
       flex-direction: column;
+      align-items: start;
     }
 
     .glassdoor-icon {
       max-height: 48px;
+      
+      @media (max-width: 768px) {
+        margin-bottom: 30px;
+      }
     }
 
     p {
       color: #8B8B8B;
       font-size: 13px;
+
+      @media (max-width: 768px) {
+        margin-top: 10px;
+      }
     }
 
     .social-icons {
       display: flex;
       gap: 32px;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        justify-content: center;
+        margin-top: 25px;
+      }
 
       a {
         color: #271C47;
@@ -59,6 +78,10 @@
     align-items: center;
     justify-content: center;
     padding: 8px 0;
+
+    @media (max-width: 768px) {
+      margin-top: 10px;
+    }
 
     p {
       color: #271C47;
