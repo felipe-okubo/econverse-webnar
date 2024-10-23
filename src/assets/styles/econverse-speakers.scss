@@ -4,13 +4,22 @@
   flex-direction: column;
   background: white;
 
-  span {
+  @media (max-width: 768px) {
+    padding: 70px 20px;
+  }
+
+  .title {
     font-family: 'Work Sans';
     font-size: 38px;
     color: black;
     font-weight: bold;
     margin: 0;
     text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 36px;
+      text-align: center;
+    }
   }
 
   .description {
@@ -19,12 +28,23 @@
     color: black;
     margin: 10px auto 0;
     max-width: 726px;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+      text-align: center;
+    }
+
   }
 
   .speakers {
     display: flex;
     justify-content: center;
     gap: 60px;
+
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
+      gap: 5px;
+    }
 
     .person {
       max-width: 180px;

@@ -14,6 +14,10 @@
     align-items: center;
     justify-content: space-evenly;
 
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
     .glassdoor-icon {
       max-height: 48px;
     }

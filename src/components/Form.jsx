@@ -4,8 +4,11 @@ import "../../css/econverse-form.css";
 import axios from "axios";
 
 import formImage from "../assets/images/form-image.png";
+import formImageMobile from "../assets/images/form-image-mobile.png";
 
 const Form = () => {
+  const isMobile = window.innerWidth < 768;
+
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
 
@@ -66,7 +69,7 @@ const Form = () => {
         </form>
       </div>
 
-      <img className="form-image" src={formImage} alt="Imageem formulário" />
+      <img className="form-image" src={isMobile ? formImageMobile : formImage} alt="Imageem formulário" />
     </div>
   );
 };

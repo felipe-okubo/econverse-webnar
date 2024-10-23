@@ -7,6 +7,10 @@
   background-repeat: no-repeat;
   background-size: cover;
 
+  @media (max-width: 768px) {
+    padding: 70px 20px;
+  }
+
   span {
     font-family: 'Work Sans';
     font-size: 38px;

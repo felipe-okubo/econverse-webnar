@@ -6,10 +6,21 @@
   gap: 40px;
   background: white;
 
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0;
+  }
+
   .left-side {
     max-width: 413px;
     width: 100%;
     margin-top: 50px;
+
+    @media (max-width: 768px) {
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
 
     span {
       font-family: 'work Sans', 'Poppins';
@@ -17,12 +28,21 @@
       font-size: 38px;
       font-style: italic;
       color: black;
-      
+
+      @media (max-width: 768px) {
+        font-size: 36px;
+      }
     }
+
     p {
       font-family: 'work Sans', 'Poppins';
       color: black; 
       margin: 10px 0 32px 0;
+
+      @media (max-width: 768px) {
+        font-size: 14px;
+        line-height: 1;
+      }
       
     }
 

@@ -4,6 +4,10 @@
   flex-direction: column;
   background: #EBEBEB;
 
+  @media (max-width: 768px) {
+    padding: 70px 20px;
+  }
+
   span {
     font-family: 'Work Sans';
     font-size: 38px;
@@ -13,6 +17,7 @@
     text-align: center;
     font-style: italic;
     margin-bottom: 32px;
+    line-height: 1;
   }
 
   .topics {
@@ -26,6 +31,10 @@
       justify-content: center;
       align-items: center;
       gap: 30px;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
 
       .number {
         font-family: "Work Sans";

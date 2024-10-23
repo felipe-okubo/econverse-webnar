@@ -38,7 +38,7 @@ const Speakers = () => {
 
   return (
     <div id="speakers-container">
-      <span>Speakers</span>
+      <span className="title">Speakers</span>
       <p className="description">
         Estamos animados em contar com um time de especialistas no nosso webinar
         sobre a <strong>Jornada de Compras + Digitalização!</strong> Confira quem vai
