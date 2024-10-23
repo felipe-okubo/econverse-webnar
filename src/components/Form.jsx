@@ -4,18 +4,18 @@ import "../../css/econverse-form.css";
 import formImage from "../assets/images/form-image.png";
 import formImageMobile from "../assets/images/form-image-mobile.png";
 
+import PopUpForm from "../components/PopUpForm.jsx";
+
 const Form = () => {
   const isMobile = window.innerWidth < 768;
-
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("🍕🍕🍕 ~ name:", name);
-    console.log("🍕🍕🍕 ~ email:", email);
 
-    const response = await fetch('https://task30612--econverse.myvtex.com/md/webnar-form', {
+    const response = await fetch('https://formspree.io/f/xjkvvloy', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
@@ -25,9 +25,7 @@ const Form = () => {
    });
 
     if (response.ok) {
-      alert('Formulário enviado com sucesso!');
-      setName('');
-      setEmail('');
+      setShowPopup(true);
     } else {
       alert('Erro ao enviar o formulário.');
     }
@@ -36,6 +34,9 @@ const Form = () => {
 
   return (
     <div id="form-container">
+
+      {showPopup && <PopUpForm show={showPopup} hide={() => setShowPopup(false)} />}
+
       <div className="left-side">
         <span>Inscreva-se!</span>
         <p>
