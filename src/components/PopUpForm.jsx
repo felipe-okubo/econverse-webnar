@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../css/econverse-popUpForm.css";
 import checkIcon from "../assets/images/check-circle.png";
 
-const PopUpForm = ({show, hide}) => {
+const PopUpForm = () => {
+  const [showPopup, setShowPopup] = useState(true);
 
   return (
-    show && (
+    showPopup && (
       <div id="popup-container">
-        <div className="overlay" onClick={hide}> </div>
+        <div className="overlay" onClick={() => setShowPopup(false)}> </div>
   
         <div className="form-container">
           <img src={checkIcon} alt="Check Icon" />
@@ -20,7 +21,7 @@ const PopUpForm = ({show, hide}) => {
             <br/><br/>Equipe Econverse
           </p>
   
-          <button onClick={hide} >OK!</button>
+          <button onClick={() => setShowPopup(false)} >OK!</button>
         </div>
       </div>
     )

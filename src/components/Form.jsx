@@ -11,12 +11,12 @@ const Form = () => {
   const isMobile = window.innerWidth < 768;
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-  const [showPopup, setShowPopup] = useState(false);
+  const [visible, setShowPopup] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('https://formspree.io/f/xjkvvloy', {
+    const response = await fetch('https://formspree.io/f/mjkvkpyg', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ const Form = () => {
   return (
     <div id="form-container">
 
-      {showPopup && <PopUpForm show={showPopup} hide={() => setShowPopup(false)} />}
+      {visible ? <PopUpForm /> : null}
 
       <div className="left-side">
         <span>Inscreva-se!</span>
