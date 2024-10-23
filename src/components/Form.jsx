@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../../css/econverse-form.css";
-import "../../css/econverse-popUpForm.css";
 
 import formImage from "../assets/images/form-image.png";
 import formImageMobile from "../assets/images/form-image-mobile.png";
@@ -11,7 +10,7 @@ const Form = () => {
   const isMobile = window.innerWidth < 768;
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-  const [visible, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +26,8 @@ const Form = () => {
 
     if (response.ok) {
       setShowPopup(true);
+      setName('');
+      setEmail('');
     } else {
       alert('Erro ao enviar o formulário.');
     }
@@ -34,9 +35,10 @@ const Form = () => {
   };
 
   return (
-    <div id="form-container">
+    <>
+    {showPopup && <PopUpForm show={showPopup} hide={() => setShowPopup(false)} />}
 
-      {visible ? <PopUpForm /> : null}
+    <div id="form-container">
 
       <div className="left-side">
         <span>Inscreva-se!</span>
@@ -51,6 +53,7 @@ const Form = () => {
             <input
               type="text"
               name="name"
+              value={name}
               placeholder="Seu nome completo"
               onChange={(e) => setName(e.target.value)}
             />
@@ -61,6 +64,7 @@ const Form = () => {
             <input
               type="email"
               name="email"
+              value={email}
               placeholder="Seu melhor e-mail"
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -72,6 +76,7 @@ const Form = () => {
 
       <img className="form-image" src={isMobile ? formImageMobile : formImage} alt="Imageem formulário" />
     </div>
+    </>
   );
 };
 
