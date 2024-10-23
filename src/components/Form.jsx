@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "../../css/econverse-form.css";
 
-import axios from "axios";
-
 import formImage from "../assets/images/form-image.png";
 import formImageMobile from "../assets/images/form-image-mobile.png";
 
@@ -17,10 +15,11 @@ const Form = () => {
     console.log("🍕🍕🍕 ~ name:", name);
     console.log("🍕🍕🍕 ~ email:", email);
 
-    const response = await fetch('/api/form', {  // A URL do endpoint da API
+    const response = await fetch('https://task30612--econverse.myvtex.com/md/webnar-form', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
       },
       body: JSON.stringify({ name, email }),
    });

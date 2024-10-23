@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <div id="home">
 
-      <a href="">
+      <a href="/#form-container">
         <img src={isMobile ? bannerImageMob : bannerImage} alt="Banner Jornada de compras" />
       </a>
 
