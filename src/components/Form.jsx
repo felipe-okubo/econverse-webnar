@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../css/econverse-form.css";
+import "../../css/econverse-popUpForm.css";
 
 import formImage from "../assets/images/form-image.png";
 import formImageMobile from "../assets/images/form-image-mobile.png";
