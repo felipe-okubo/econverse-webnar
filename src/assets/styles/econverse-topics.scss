@@ -1,0 +1,93 @@
+#topics-container {
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  background: #EBEBEB;
+
+  span {
+    font-family: 'Work Sans';
+    font-size: 38px;
+    color: black;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 32px;
+  }
+
+  .topics {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 55px;
+
+    .topic {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+
+      .number {
+        font-family: "Work Sans";
+        font-size: 52px;
+        color: #3019B2;
+        font-style: italic;
+
+        border: 3px dashed #b7b7b7;
+        border-radius: 200px;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .description-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 666px;
+
+        .title {
+          font-family: "Work Sans";
+          font-size: 18px;
+          color: #3019B2;
+          margin: 0;
+          margin-bottom: 10px;
+        }
+
+        .description {
+          font-family: "Work Sans";
+          font-size: 16px;
+          color: black;
+          margin: 0;
+        }
+      }
+
+      .duration-container {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+
+        &::before {
+          content: "";
+          width: 1px;
+          height: 95px;
+          background-color: #b7b7b7;
+          margin-right: 40px;
+        }
+
+        img {
+          max-width: 41px;
+          max-height: 41px;
+        }
+
+        .duration {
+          font-family: "Work Sans";
+          font-size: 16px;
+          color: black;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
