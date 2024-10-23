@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../css/econverse-popUpForm.css";
 import checkIcon from "../assets/images/check-circle.png";
 

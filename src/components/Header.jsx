@@ -18,7 +18,7 @@ const Header = () => {
             />
           </a>
           
-          <a className="contact-button" href="/">
+          <a className="contact-button" href="https://www.econverse.com.br/contato/">
             Fale Conosco
           </a>
 
@@ -91,7 +91,7 @@ const Header = () => {
             </ul>
           </nav>
 
-          <a className="contact-button" href="/">
+          <a className="contact-button" href="https://www.econverse.com.br/contato/">
             Fale Conosco
           </a>
         </>
