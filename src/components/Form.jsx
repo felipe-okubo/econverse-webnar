@@ -15,67 +15,79 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('https://formspree.io/f/mjkvkpyg', {
-      method: 'POST',
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      alert("Por favor, insira um e-mail válido.");
+      return;
+    }
+
+    const response = await fetch("https://app.tarefy.com/nodeapi/event/econverse", {
+      method: "POST",
       headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({ name, email }),
-   });
+    });
 
     if (response.ok) {
       setShowPopup(true);
-      setName('');
-      setEmail('');
+      setName("");
+      setEmail("");
     } else {
-      alert('Erro ao enviar o formulário.');
+      alert("Erro ao enviar o formulário.");
     }
-
   };
 
   return (
     <>
-    {showPopup && <PopUpForm show={showPopup} hide={() => setShowPopup(false)} />}
+      {showPopup && (
+        <PopUpForm show={showPopup} hide={() => setShowPopup(false)} />
+      )}
 
-    <div id="form-container">
+      <div id="form-container">
+        <div className="left-side">
+          <span>Inscreva-se!</span>
+          <p>
+            Se você não conseguir participar da live, registra-se para receber o
+            material gratuitamente :)
+          </p>
 
-      <div className="left-side">
-        <span>Inscreva-se!</span>
-        <p>
-          Se você não conseguir participar da live, registra-se para receber o
-          material gratuitamente :)
-        </p>
+          <form className="form" onSubmit={handleSubmit}>
+            <label htmlFor="name">
+              Nome
+              <input
+                type="text"
+                name="name"
+                value={name}
+                placeholder="Seu nome completo"
+                onChange={(e) => setName(e.target.value)}
+              />
+            </label>
 
-        <form className="form" onSubmit={handleSubmit}>
-          <label htmlFor="name">
-            Nome
-            <input
-              type="text"
-              name="name"
-              value={name}
-              placeholder="Seu nome completo"
-              onChange={(e) => setName(e.target.value)}
-            />
-          </label>
+            <label htmlFor="email">
+              E-mail
+              <input
+                type="email"
+                name="email"
+                value={email}
+                placeholder="Seu melhor e-mail"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </label>
 
-          <label htmlFor="email">
-            E-mail
-            <input
-              type="email"
-              name="email"
-              value={email}
-              placeholder="Seu melhor e-mail"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </label>
+            <button type="submit">CADASTRAR</button>
+          </form>
+        </div>
 
-          <button type="submit">CADASTRAR</button>
-        </form>
+        <img
+          className="form-image"
+          src={isMobile ? formImageMobile : formImage}
+          alt="Imageem formulário"
+        />
       </div>
-
-      <img className="form-image" src={isMobile ? formImageMobile : formImage} alt="Imageem formulário" />
-    </div>
     </>
   );
 };

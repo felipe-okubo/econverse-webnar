@@ -45,7 +45,7 @@ const Topics = () => {
                   <h3 className="title">{topics.title}</h3>
                 </div>
               )}
-
+              <h3 className="title">{topics.title}</h3>
               <p className="description" dangerouslySetInnerHTML={{ __html: topics.description }} ></p>
             </div>
             <div className="duration-container">

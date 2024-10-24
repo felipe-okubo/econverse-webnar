@@ -16,7 +16,7 @@ const Speakers = () => {
     },
     {
       name: "Eduardo Barbosa",
-      cargo: "Senior Fild Software Engineer da VTEX",
+      cargo: "Senior Field Software Engineer da VTEX",
       image: speakerImage2,
     },
     {
@@ -38,10 +38,10 @@ const Speakers = () => {
 
   return (
     <div id="speakers-container">
-      <span className="title">Speakers</span>
+      <span className="title">SPEAKERS</span>
       <p className="description">
         Estamos animados em contar com um time de especialistas no nosso webinar
-        sobre a <strong>Jornada de Compras + Digitalização!</strong> Confira quem vai
+        sobre a <strong>JORNADA DE COMPRAS E DIGITALIZAÇÃO</strong> Confira quem vai
         compartilhar insights valiosos:
       </p>
 
