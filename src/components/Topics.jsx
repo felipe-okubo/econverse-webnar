@@ -47,11 +47,10 @@ const Topics = () => {
               )}
 
               {!isMobile && (
-                <>
-                  <h3 className="title">{topics.title}</h3>
-                  <p className="description" dangerouslySetInnerHTML={{ __html: topics.description }} ></p>
-                </>
+                <h3 className="title">{topics.title}</h3>
               )}
+              
+              <p className="description" dangerouslySetInnerHTML={{ __html: topics.description }} ></p>
 
             </div>
             <div className="duration-container">
