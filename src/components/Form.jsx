@@ -9,8 +9,19 @@ import PopUpForm from "../components/PopUpForm.jsx";
 const Form = () => {
   const isMobile = window.innerWidth < 768;
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [nome, setNome] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [empresa, setEmpresa] = useState("");
+  const [cargo, setCargo] = useState("");
   const [showPopup, setShowPopup] = useState(false);
+
+  const handleTelefoneChange = (e) => {
+    const value = e.target.value.replace(/\D/g, "");
+    const formattedValue = value
+      .replace(/^(\d{2})(\d)/, "($1) $2")
+      .replace(/(\d{5})(\d{4})$/, "$1-$2");
+    setTelefone(formattedValue);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,20 +33,24 @@ const Form = () => {
       return;
     }
 
-    const response = await fetch("https://app.tarefy.com/nodeapi/event/econverse", {
+    // const response = await fetch("https://app.tarefy.com/nodeapi/event/econverse", {
+    const response = await fetch("/api/submitForm", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json",
         "Access-Control-Allow-Origin": "*",
       },
-      body: JSON.stringify({ name, email }),
+      body: JSON.stringify({ nome, email, phone: telefone, enterprise: empresa, role: cargo }),
     });
 
     if (response.ok) {
       setShowPopup(true);
-      setName("");
+      setNome("");
       setEmail("");
+      setTelefone("");
+      setEmpresa("");
+      setCargo("");
     } else {
       alert("Erro ao enviar o formulário.");
     }
@@ -56,14 +71,14 @@ const Form = () => {
           </p>
 
           <form className="form" onSubmit={handleSubmit}>
-            <label htmlFor="name">
+            <label htmlFor="nome">
               Nome
               <input
                 type="text"
-                name="name"
-                value={name}
+                name="nome"
+                value={nome}
                 placeholder="Seu nome completo"
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => setNome(e.target.value)}
               />
             </label>
 
@@ -78,6 +93,40 @@ const Form = () => {
               />
             </label>
 
+            <label htmlFor="telefone">
+              Telefone
+              <input
+                type="text"
+                name="telefone"
+                value={telefone}
+                placeholder="Telefone"
+                onChange={handleTelefoneChange}
+                maxLength="15" // Limita o comprimento para o formato (XX) XXXXX-XXXX
+              />
+            </label>
+
+            <label htmlFor="empresa">
+              Empresa
+              <input
+                type="text"
+                name="empresa"
+                value={empresa}
+                placeholder="Empresa:"
+                onChange={(e) => setEmpresa(e.target.value)}
+              />
+            </label>
+
+            <label htmlFor="cargo">
+              Cargo
+              <input
+                type="text"
+                name="cargo"
+                value={cargo}
+                placeholder="Cargo:"
+                onChange={(e) => setCargo(e.target.value)}
+              />
+            </label>
+
             <button type="submit">CADASTRAR</button>
           </form>
         </div>
@@ -85,11 +134,12 @@ const Form = () => {
         <img
           className="form-image"
           src={isMobile ? formImageMobile : formImage}
-          alt="Imageem formulário"
+          alt="Imagem formulário"
         />
       </div>
     </>
   );
+
 };
 
 export default Form;
