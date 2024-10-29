@@ -33,7 +33,6 @@ const Form = () => {
       return;
     }
 
-    // const response = await fetch("https://app.tarefy.com/nodeapi/event/econverse", {
     const response = await fetch("/api/submitForm", {
       method: "POST",
       headers: {

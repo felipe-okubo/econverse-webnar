@@ -8,29 +8,32 @@ export default async function handler(req, res) {
   const RD_API_KEY = process.env.RD_API_KEY;
   const eco_appkey = process.env.eco_appkey;
   const eco_apptoken = process.env.eco_apptoken;
+  const api_key = process.env.eco_apptoken;
 
   try {
-    // Envie os dados para a API de Leads da RD Station
-
     const response = await fetch(
       // `https://app.tarefy.com/nodeapi/event/econverse`,
+      // `https://econverse.vtexcommercestable.com.br/api/dataentities/WB/documents`,
       // `https://api.rd.services/platform/contacts`,
-      `https://econverse.vtexcommercestable.com.br/api/dataentities/WB/documents`,
+      `https://api.rd.services/platform/conversions?api_key=${api_key}`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-VTEX-API-AppKey": `${eco_appkey}`,
-          "X-VTEX-API-AppToken": `${eco_apptoken}`,
         },
         body: JSON.stringify({
-          nome: nome,
-          email: email,
-          // phone: phone,
-          // enterprise: enterprise,
-          // role: role,
-          //   available_for_mailing: true,
-        }),
+          event_type: "CONVERSION",
+          event_family: "CDP",
+          payload: {
+            name: nome,
+            email: email,
+            personal_phone: phone,
+            company_name: enterprise,
+            job_title: role,
+            tags: ["Evento Econverce Webinar"],
+            conversion_identifier: "Econverse Webinar",
+          }
+        })
       }
     );
 
@@ -45,5 +48,4 @@ export default async function handler(req, res) {
     console.error(error);
     return res.status(500).json({ message: "Erro ao processar o formulário" });
   }
-
 }
