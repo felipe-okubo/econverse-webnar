@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   const RD_API_KEY = process.env.RD_API_KEY;
   const eco_appkey = process.env.eco_appkey;
   const eco_apptoken = process.env.eco_apptoken;
-  const api_key = process.env.eco_apptoken;
+  const api_key = process.env.api_key;
 
   try {
     const response = await fetch(
