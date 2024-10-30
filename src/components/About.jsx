@@ -11,7 +11,7 @@ const About = () => {
 
       <p className="about-text">
         Prepare-se para um mergulho profundo na <strong>Jornada de Compras e
-        Digitalização!</strong> No dia <strong>04 DE NOVEMBRO, às 19h</strong>, a Econverse, agência
+        Digitalização!</strong> No dia <strong>05 DE DEZEMBRO, às 19h</strong>, a Econverse, agência
         especialista em implementação de e-commerce, realizará um webinar
         imperdível sobre omnicanalidade. Nosso objetivo é mostrar como integrar
         canais físicos e digitais para oferecer uma experiência de compra fluida
