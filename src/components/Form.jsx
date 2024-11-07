@@ -50,6 +50,21 @@ const Form = () => {
       setTelefone("");
       setEmpresa("");
       setCargo("");
+
+      const googleFormURL = 'https://docs.google.com/forms/d/e/1FAIpQLSelUMGninkClFf1AujcKgyhulyV9kShG5YiF6HnjoIpftMz7w/formResponse';
+      const googleFormData = new FormData();
+      googleFormData.append('entry.692376335', email);
+      fetch(googleFormURL, {
+        method: 'POST',
+        body: googleFormData
+      }).then(response => {
+        if (response.ok) {
+          console.log('Formulário enviado com sucesso');
+        } else {
+          console.log('Erro ao enviar formulário');
+        }
+      });
+
     } else {
       alert("Erro ao enviar o formulário.");
     }
